@@ -62,9 +62,12 @@ export function useParallax(strength = 0.08) {
 
 /**
  * While scrolling, sets active index to the item whose bounding box center is
- * closest to the viewport vertical center among items that intersect the viewport.
+ * closest to the vertical center of either the window or a scroll container.
+ *
+ * @param {number} itemCount
+ * @param {HTMLElement | null} scrollRoot - When set (e.g. snap timeline), measure against this element's visible rect and listen to its scroll; otherwise use the viewport.
  */
-export function useActiveIndexNearViewportCenter(itemCount) {
+export function useActiveIndexNearCenter(itemCount, scrollRoot) {
   const itemRefs = useRef([]);
   const rafId = useRef(null);
   const [activeIndex, setActiveIndex] = useState(null);
@@ -73,8 +76,22 @@ export function useActiveIndexNearViewportCenter(itemCount) {
     if (itemCount === 0) return;
 
     const update = () => {
-      const vh = window.innerHeight;
-      const mid = vh / 2;
+      let topBound;
+      let bottomBound;
+      let midY;
+
+      if (scrollRoot) {
+        const r = scrollRoot.getBoundingClientRect();
+        topBound = r.top;
+        bottomBound = r.bottom;
+        midY = r.top + r.height / 2;
+      } else {
+        const vh = window.innerHeight;
+        topBound = 0;
+        bottomBound = vh;
+        midY = vh / 2;
+      }
+
       let best = null;
       let bestDist = Infinity;
       const refs = itemRefs.current;
@@ -82,9 +99,9 @@ export function useActiveIndexNearViewportCenter(itemCount) {
         const el = refs[i];
         if (!el) continue;
         const rect = el.getBoundingClientRect();
-        if (rect.bottom <= 0 || rect.top >= vh) continue;
+        if (rect.bottom <= topBound || rect.top >= bottomBound) continue;
         const center = rect.top + rect.height / 2;
-        const dist = Math.abs(center - mid);
+        const dist = Math.abs(center - midY);
         if (dist < bestDist) {
           bestDist = dist;
           best = i;
@@ -98,16 +115,22 @@ export function useActiveIndexNearViewportCenter(itemCount) {
       rafId.current = requestAnimationFrame(update);
     };
 
+    if (scrollRoot) {
+      scrollRoot.addEventListener("scroll", onScrollOrResize, { passive: true });
+    }
     window.addEventListener("scroll", onScrollOrResize, { passive: true });
     window.addEventListener("resize", onScrollOrResize, { passive: true });
     update();
 
     return () => {
+      if (scrollRoot) {
+        scrollRoot.removeEventListener("scroll", onScrollOrResize);
+      }
       window.removeEventListener("scroll", onScrollOrResize);
       window.removeEventListener("resize", onScrollOrResize);
       if (rafId.current) cancelAnimationFrame(rafId.current);
     };
-  }, [itemCount]);
+  }, [itemCount, scrollRoot]);
 
   return [activeIndex, itemRefs];
 }

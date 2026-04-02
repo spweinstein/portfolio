@@ -2,6 +2,8 @@
   position: relative;
   overflow: hidden;
   padding: var(--space-3xl) var(--space-xl);
+  /* Room to scroll past the last snap target into the next section */
+  padding-bottom: max(var(--space-3xl), 35vh);
 }
 
 .experience__inner {
@@ -30,6 +32,8 @@
 
 .experience__item {
   position: relative;
+  scroll-margin-top: var(--navbar-height);
+  scroll-margin-bottom: var(--space-md);
 }
 
 .experience__dot {
@@ -51,7 +55,9 @@
   border-radius: var(--radius);
   padding: var(--space-xl);
   box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .experience__item[data-active="true"] .experience__card {

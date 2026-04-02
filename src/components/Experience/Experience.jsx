@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import { RevealSection } from "../RevealSection.jsx";
-
-const MotionUl = motion.ul;
 import ParallaxBg from "../ParallaxBg.jsx";
 import { PATTERNS } from "../../constants/parallaxPatterns.js";
-import { useActiveIndexNearViewportCenter } from "../../hooks/useScrollReveal.js";
+import { useExperienceScrollSnap } from "../../hooks/useExperienceScrollSnap.js";
 import "./Experience.css";
+
+const MotionUl = motion.ul;
 
 const reducedMotion =
   typeof window !== "undefined" &&
@@ -61,9 +61,7 @@ const experiences = [
 ];
 
 function Experience() {
-  const [activeIndex, itemRefs] = useActiveIndexNearViewportCenter(
-    experiences.length,
-  );
+  const [activeIndex, itemRefs] = useExperienceScrollSnap(experiences.length);
 
   return (
     <RevealSection className="experience" id="experience" theme="dark">

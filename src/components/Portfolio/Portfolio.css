@@ -1,0 +1,27 @@
+.portfolio {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-3xl) var(--space-xl);
+}
+
+.portfolio__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.portfolio__eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  margin-bottom: var(--space-sm);
+}
+
+.portfolio__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  margin-top: var(--space-xl);
+}

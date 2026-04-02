@@ -3,7 +3,14 @@ import SocialActions from "../SocialActions/SocialActions.jsx";
 import { useActiveSection } from "../../hooks/useScrollReveal.js";
 import "./NavBar.css";
 
-const SECTION_IDS = ["top", "about", "projects", "skills", "experience", "education"];
+const SECTION_IDS = [
+  "top",
+  "about",
+  "projects",
+  "skills",
+  "experience",
+  "education",
+];
 
 function NavBar() {
   const [scrolled, setScrolled] = useState(false);
@@ -58,27 +65,38 @@ function NavBar() {
         <div className="navbar__menu">
           <ul className="navbar__links">
             <li>
-              <a href="#about" className={linkClass("about")} onClick={closeMenu}>
+              <a
+                href="#about"
+                className={linkClass("about")}
+                onClick={closeMenu}
+              >
                 About
               </a>
             </li>
             <li>
-              <a href="#projects" className={linkClass("projects")} onClick={closeMenu}>
-                Projects
+              <a
+                href="#projects"
+                className={linkClass("projects")}
+                onClick={closeMenu}
+              >
+                Portfolio
               </a>
             </li>
             <li>
-              <a href="#skills" className={linkClass("skills")} onClick={closeMenu}>
+              <a
+                href="#skills"
+                className={linkClass("skills")}
+                onClick={closeMenu}
+              >
                 Skills
               </a>
             </li>
             <li>
-              <a href="#experience" className={linkClass("experience")} onClick={closeMenu}>
-                Experience
-              </a>
-            </li>
-            <li>
-              <a href="#education" className={linkClass("education")} onClick={closeMenu}>
+              <a
+                href="#education"
+                className={linkClass("education")}
+                onClick={closeMenu}
+              >
                 Education
               </a>
             </li>
@@ -88,7 +106,11 @@ function NavBar() {
       </div>
 
       {menuOpen && (
-        <div className="navbar__backdrop" onClick={closeMenu} aria-hidden="true" />
+        <div
+          className="navbar__backdrop"
+          onClick={closeMenu}
+          aria-hidden="true"
+        />
       )}
     </nav>
   );
