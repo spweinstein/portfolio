@@ -1,0 +1,32 @@
+/* ---------- ParallaxBg shared layout ---------- */
+
+/* Outer wrapper — exact size of parent, used for scroll measurement */
+[data-parallax-bg] {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Inner div sizing is computed inline by ParallaxBg based on strength prop */
+
+/* Anything inside a section that has a ParallaxBg must sit above it */
+[data-parallax-bg] ~ * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Section utilities ---------- */
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  margin-top: var(--space-sm);
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
