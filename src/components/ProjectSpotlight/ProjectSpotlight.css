@@ -4,14 +4,14 @@
   flex-direction: column;
   gap: 0;
   padding: var(--space-xl);
-  background: var(--bg-card);
+  background: rgba(38, 27, 255, 0.2);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
 }
 
 .spotlight--alt {
-  background: var(--bg-surface);
+  background: rgba(69, 64, 181, 0.2);
 }
 
 .spotlight__carousel-shell {

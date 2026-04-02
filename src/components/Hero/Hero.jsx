@@ -21,15 +21,14 @@ const fade = (delay = 0) => ({
 const chips = [
   "Based in Stamford, CT",
   "Cornell Information Science",
-  "Data + ML Background",
-  "Open to Full-Stack Roles",
+  "Searching for Roles in Full-Stack Development",
+  "Open to Project-Based Opportunities",
 ];
 
 const aboutBullets = [
-  "Decomposes complex, real-world processes into durable backend logic and clean interfaces.",
-  "Drawn to workflow-heavy tools, internal systems, and products where good data modeling matters.",
-  "Information Science at Cornell — applies a systems-thinking lens to every feature shipped.",
-  "Seeking a team that values product clarity as much as technical rigor.",
+  "Drawn to messy, real-world problems that need structure, not just flashy interfaces",
+  "Combines analytical thinking with a strong technical foundation",
+  "Designs durable data models and writes scalable code patterns",
 ];
 
 function Hero() {
@@ -53,8 +52,11 @@ function Hero() {
           </motion.h1>
 
           <motion.p className="hero__subheadline" variants={fade(0.1)}>
-            Full-stack engineer with roots in data analysis and machine
-            learning, focused on products where structure actually matters.
+            Full-stack Software Developer developing responsive end-to-end web
+            applications using the MERN stack and Python/Django/Flask. With a
+            background in data analysis and machine learning I automate complex
+            workflows, design durable data models and write scalable code
+            patterns.
           </motion.p>
 
           <motion.div className="hero__actions" variants={fade(0.15)}>
@@ -81,8 +83,7 @@ function Hero() {
             About Me
           </motion.p>
           <motion.p className="hero__about-lead" variants={fade(0.1)}>
-            I&apos;m drawn to software that supports real workflows — not toy
-            demos, but tools people actually rely on.
+            I turn complex real world workflows into reliable software.
           </motion.p>
           <motion.ul className="hero__bullets" variants={fade(0.18)}>
             {aboutBullets.map((b) => (
