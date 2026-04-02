@@ -1,8 +1,6 @@
+import SocialIconLink from "../SocialIconLink/SocialIconLink.jsx";
+import { GITHUB_URL, LINKEDIN_URL, RESUME_URL } from "../../constants/urls.js";
 import "./Hero.css";
-
-const LINKEDIN_URL = "https://www.linkedin.com/in/spencer-weinstein/";
-const RESUME_URL =
-  "https://docs.google.com/document/d/1Xr77V04V5YFMmAl6XuTc4rVBrPVNYYTjsGtSEo0YQxU/edit?usp=sharing";
 
 function Hero() {
   return (
@@ -20,22 +18,15 @@ function Hero() {
           <a href="#projects" className="hero__btn hero__btn--primary">
             View My Work
           </a>
-          <a
-            href={RESUME_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hero__btn hero__btn--outline"
+          <div
+            className="hero__social"
+            role="group"
+            aria-label="GitHub, LinkedIn, and résumé"
           >
-            Download Resume
-          </a>
-          <a
-            href={LINKEDIN_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hero__btn hero__btn--outline"
-          >
-            LinkedIn
-          </a>
+            <SocialIconLink variant="github" href={GITHUB_URL} />
+            <SocialIconLink variant="linkedin" href={LINKEDIN_URL} />
+            <SocialIconLink variant="resume" href={RESUME_URL} />
+          </div>
         </div>
       </div>
     </section>

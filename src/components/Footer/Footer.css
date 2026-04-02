@@ -22,18 +22,15 @@
 
 .footer__links {
   display: flex;
-  gap: var(--space-xl);
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
-.footer__links a {
-  color: var(--text-on-dark-muted);
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: var(--transition);
-}
-
-.footer__links a:hover {
-  color: var(--primary);
+.footer__icon-row {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
 }
 
 .footer__copy {

@@ -35,15 +35,25 @@
 .skills__list {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-xs);
+  gap: var(--space-sm);
 }
 
 .skills__tag {
   background-color: var(--bg-surface);
   color: var(--text-secondary);
   font-size: 0.85rem;
-  font-weight: 500;
-  padding: var(--space-xs) var(--space-sm);
-  border-radius: var(--radius-sm);
-  border: var(--border);
+  font-weight: 600;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition: var(--transition);
+}
+
+.skills__tag:hover {
+  border-color: rgba(59, 130, 246, 0.45);
+  color: var(--primary-dark);
+  background-color: var(--primary-light);
+  transform: scale(1.02);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.12);
 }

@@ -1,8 +1,6 @@
+import SocialIconLink from "../SocialIconLink/SocialIconLink.jsx";
+import { GITHUB_URL, LINKEDIN_URL, RESUME_URL } from "../../constants/urls.js";
 import "./NavBar.css";
-
-const LINKEDIN_URL = "https://www.linkedin.com/in/spencer-weinstein/";
-const RESUME_URL =
-  "https://docs.google.com/document/d/1Xr77V04V5YFMmAl6XuTc4rVBrPVNYYTjsGtSEo0YQxU/edit?usp=sharing";
 
 function NavBar() {
   return (
@@ -18,31 +16,10 @@ function NavBar() {
           <li>
             <a href="#skills">Skills</a>
           </li>
-          <li>
-            <a href="#experience">Experience</a>
-          </li>
-          <li>
-            <a href="#education">Education</a>
-          </li>
-          <li>
-            <a
-              href={LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="navbar__cta"
-            >
-              LinkedIn
-            </a>
-          </li>
-          <li>
-            <a
-              href={RESUME_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="navbar__cta navbar__cta--outline"
-            >
-              Resume
-            </a>
+          <li className="navbar__icon-group">
+            <SocialIconLink variant="github" href={GITHUB_URL} size="sm" />
+            <SocialIconLink variant="linkedin" href={LINKEDIN_URL} size="sm" />
+            <SocialIconLink variant="resume" href={RESUME_URL} size="sm" />
           </li>
         </ul>
       </div>

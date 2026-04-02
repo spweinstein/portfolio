@@ -1,9 +1,6 @@
+import SocialIconLink from "../SocialIconLink/SocialIconLink.jsx";
+import { GITHUB_URL, LINKEDIN_URL, RESUME_URL } from "../../constants/urls.js";
 import "./Footer.css";
-
-const LINKEDIN_URL = "https://www.linkedin.com/in/spencer-weinstein/";
-const RESUME_URL =
-  "https://docs.google.com/document/d/1Xr77V04V5YFMmAl6XuTc4rVBrPVNYYTjsGtSEo0YQxU/edit?usp=sharing";
-const GITHUB_URL = "https://github.com/spweinstein";
 
 function Footer() {
   return (
@@ -11,27 +8,15 @@ function Footer() {
       <div className="footer__inner">
         <p className="footer__name">Spencer Weinstein</p>
         <div className="footer__links">
-          <a
-            href={LINKEDIN_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <div
+            className="footer__icon-row"
+            role="group"
+            aria-label="GitHub, LinkedIn, and résumé"
           >
-            LinkedIn
-          </a>
-          <a
-            href={GITHUB_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
-          <a
-            href={RESUME_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Resume
-          </a>
+            <SocialIconLink variant="github" href={GITHUB_URL} />
+            <SocialIconLink variant="linkedin" href={LINKEDIN_URL} />
+            <SocialIconLink variant="resume" href={RESUME_URL} />
+          </div>
         </div>
         <p className="footer__copy">
           &copy; {new Date().getFullYear()} Spencer Weinstein

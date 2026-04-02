@@ -1,3 +1,14 @@
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero {
   background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-dark-raised) 100%);
   color: var(--text-on-dark);
@@ -8,6 +19,38 @@
 .hero__inner {
   max-width: var(--max-width);
   margin: 0 auto;
+}
+
+.hero__inner > * {
+  animation: heroFadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.hero__inner > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.hero__inner > *:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.hero__inner > *:nth-child(3) {
+  animation-delay: 0.19s;
+}
+
+.hero__inner > *:nth-child(4) {
+  animation-delay: 0.26s;
+}
+
+.hero__inner > *:nth-child(5) {
+  animation-delay: 0.33s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__inner > * {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .hero__greeting {
@@ -45,8 +88,15 @@
 .hero__actions {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: var(--space-md);
   flex-wrap: wrap;
+}
+
+.hero__social {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
 }
 
 .hero__btn {
@@ -59,13 +109,21 @@
   transition: var(--transition);
 }
 
+.hero__btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
 .hero__btn--primary {
   background-color: var(--primary);
   color: #fff;
+  box-shadow: 0 2px 12px rgba(59, 130, 246, 0.35);
 }
 
 .hero__btn--primary:hover {
   background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-primary);
 }
 
 .hero__btn--outline {
@@ -75,4 +133,6 @@
 
 .hero__btn--outline:hover {
   background-color: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.2);
 }
