@@ -1,0 +1,129 @@
+.experience {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-3xl) var(--space-xl);
+}
+
+.experience__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.experience__eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  margin-bottom: var(--space-sm);
+}
+
+.experience__timeline {
+  margin-top: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  padding-left: var(--space-xl);
+  border-left: 2px solid var(--border-color);
+}
+
+.experience__item {
+  position: relative;
+}
+
+.experience__dot {
+  position: absolute;
+  left: calc(-1 * var(--space-xl) - 6px);
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 2px solid var(--bg-body);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  pointer-events: none;
+}
+
+.experience__card {
+  background: var(--bg-card);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.experience__item[data-active="true"] .experience__card {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(59, 130, 246, 0.35);
+}
+
+.experience__header {
+  margin-bottom: var(--space-xs);
+}
+
+.experience__role-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.experience__role {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.experience__period {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.experience__company {
+  font-size: 0.92rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.experience__bullets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding-left: var(--space-lg);
+}
+
+.experience__bullets li {
+  position: relative;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  padding-left: var(--space-sm);
+}
+
+.experience__bullets li::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-md));
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--text-light);
+}
+
+@media (max-width: 600px) {
+  .experience__role-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+}

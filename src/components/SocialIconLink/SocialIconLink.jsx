@@ -31,18 +31,30 @@ const ICONS = {
       <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
     </svg>
   ),
+  email: (
+    <svg
+      className="social-icon-link__svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+    </svg>
+  ),
 };
 
 const defaultLabels = {
   github: "GitHub",
   linkedin: "LinkedIn",
   resume: "Résumé",
+  email: "Email",
 };
 
 const defaultTooltips = {
   github: "GitHub — code, repositories, and contributions",
   linkedin: "LinkedIn — professional profile and experience",
   resume: "Resume — opens in Google Docs",
+  email: "Email — send me a message",
 };
 
 function SocialIconLink({ variant, href, ariaLabel, size, tooltip }) {

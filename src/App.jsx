@@ -1,8 +1,11 @@
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar.jsx";
 import Hero from "./components/Hero/Hero.jsx";
+import Principles from "./components/Principles/Principles.jsx";
 import FeaturedProjects from "./components/FeaturedProjects/FeaturedProjects.jsx";
 import Skills from "./components/Skills/Skills.jsx";
+import Experience from "./components/Experience/Experience.jsx";
+import Education from "./components/Education/Education.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 
 function App() {
@@ -11,8 +14,11 @@ function App() {
       <NavBar />
       <main>
         <Hero />
+        <Principles />
         <FeaturedProjects />
         <Skills />
+        <Experience />
+        <Education />
       </main>
       <Footer />
     </>

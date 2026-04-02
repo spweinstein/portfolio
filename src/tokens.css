@@ -59,3 +59,13 @@
   --transition:      all 0.2s ease;
   --transition-slow: all 0.35s ease;
 }
+
+[data-theme="dark"] {
+  --text-primary:   #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-light:     #64748b;
+  --bg-card:        #1e293b;
+  --bg-surface:     #162032;
+  --border-color:   rgba(148, 163, 184, 0.15);
+  --primary-light:  rgba(59, 130, 246, 0.2);
+}

@@ -1,11 +1,22 @@
 .skills {
+  position: relative;
+  overflow: hidden;
   padding: var(--space-3xl) var(--space-xl);
-  background-color: var(--bg-surface);
 }
 
 .skills__inner {
   max-width: var(--max-width);
   margin: 0 auto;
+}
+
+.skills__eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  margin-bottom: var(--space-sm);
 }
 
 .skills__grid {
@@ -21,6 +32,12 @@
   border-radius: var(--radius);
   padding: var(--space-xl);
   box-shadow: var(--shadow-sm);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.skills__group:hover {
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: var(--shadow-md);
 }
 
 .skills__category {
@@ -39,6 +56,9 @@
 }
 
 .skills__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background-color: var(--bg-surface);
   color: var(--text-secondary);
   font-size: 0.85rem;
@@ -50,10 +70,38 @@
   transition: var(--transition);
 }
 
+.skills__tag-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  opacity: 0.55;
+  transition: opacity 0.2s ease;
+}
+
+.skills__tag-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.skills__tag:hover .skills__tag-icon {
+  opacity: 0.85;
+}
+
 .skills__tag:hover {
   border-color: rgba(59, 130, 246, 0.45);
   color: var(--primary-dark);
   background-color: var(--primary-light);
   transform: scale(1.02);
   box-shadow: 0 2px 8px rgba(59, 130, 246, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills__group,
+  .skills__tag {
+    transition: none;
+  }
+  .skills__tag:hover {
+    transform: none;
+  }
 }
