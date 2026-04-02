@@ -44,7 +44,7 @@ function Hero() {
           variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
         >
           <motion.p className="hero__eyebrow" variants={fade(0)}>
-            Full-Stack Developer · Data &amp; ML Background
+            Full-Stack Developer · Data Analyst · UX/UI · Machine Learning
           </motion.p>
 
           <motion.h1 className="hero__headline" variants={fade(0.05)}>
