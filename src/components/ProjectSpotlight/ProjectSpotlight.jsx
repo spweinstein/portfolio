@@ -188,13 +188,13 @@ export function ProjectSpotlight({ project, index }) {
       slides.length > 1
         ? [
             Autoplay({
-              delay: 3000,
+              delay: 7000,
               playOnInit: true,
               stopOnInteraction: true,
             }),
           ]
         : [],
-    [slides.length]
+    [slides.length],
   );
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -202,7 +202,7 @@ export function ProjectSpotlight({ project, index }) {
       align: "start",
       loop: slides.length > 1,
     },
-    emblaPlugins
+    emblaPlugins,
   );
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -245,7 +245,7 @@ export function ProjectSpotlight({ project, index }) {
     (i) => {
       emblaApi?.scrollTo(i);
     },
-    [emblaApi]
+    [emblaApi],
   );
 
   const toggleAutoplay = useCallback(() => {
@@ -259,10 +259,7 @@ export function ProjectSpotlight({ project, index }) {
   }, [emblaApi]);
 
   const isEven = index % 2 === 0;
-  const baseClass = [
-    "spotlight",
-    index % 2 === 1 ? "spotlight--alt" : "",
-  ]
+  const baseClass = ["spotlight", index % 2 === 1 ? "spotlight--alt" : ""]
     .filter(Boolean)
     .join(" ");
 
