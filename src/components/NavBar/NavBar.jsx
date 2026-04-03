@@ -86,24 +86,6 @@ function NavBar() {
                   Portfolio
                 </a>
               </li>
-              <li>
-                <a
-                  href="#skills"
-                  className={linkClass("skills")}
-                  onClick={closeMenu}
-                >
-                  Skills
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#education"
-                  className={linkClass("education")}
-                  onClick={closeMenu}
-                >
-                  Education
-                </a>
-              </li>
             </ul>
             <SocialActions size="sm" />
           </div>
@@ -112,7 +94,7 @@ function NavBar() {
 
       {SKILLS_MARQUEE_IN_NAVBAR && (
         <div className="navbar__marquee">
-          <SkillsMarquee variant="navbar" />
+          <SkillsMarquee variant="navbar" sectionDurationSeconds={10} />
         </div>
       )}
 

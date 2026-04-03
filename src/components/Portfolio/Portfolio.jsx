@@ -16,11 +16,6 @@ function Portfolio() {
       <div className="portfolio__inner">
         <span className="portfolio__eyebrow">Selected work</span>
         <h2 className="section-title">Portfolio</h2>
-        <p className="section-subtitle">
-          Case studies with multiple lenses each: product overview, technical
-          shape, and domain-specific depth — swipe or use the controls to move
-          between slides.
-        </p>
 
         <div className="portfolio__list">
           {projects.map((project, i) => (

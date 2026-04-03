@@ -1,4 +1,6 @@
+import { useRef } from "react";
 import { SKILL_ICONS, SKILLS_ORDER } from "../../constants/skillsData.jsx";
+import { useMarqueeAutoScroll } from "../../hooks/useMarqueeAutoScroll";
 import "./SkillsMarquee.css";
 
 function Sequence({ suffix }) {
@@ -20,15 +22,37 @@ function Sequence({ suffix }) {
 }
 
 /**
- * @param {{ variant?: "section" | "navbar" }} props
+ * @param {{
+ *   variant?: "section" | "navbar";
+ *   loopDurationSeconds?: number;
+ *   pixelsPerSecond?: number;
+ *   resumeDelayMs?: number;
+ * }} props
  */
-function SkillsMarquee({ variant = "section" }) {
+function SkillsMarquee({
+  variant = "section",
+  loopDurationSeconds: loopDurationProp,
+  pixelsPerSecond,
+  resumeDelayMs,
+}) {
+  const zoneRef = useRef(null);
+  const viewportRef = useRef(null);
+  const defaultLoop = variant === "navbar" ? 80 : 72;
+  const loopDurationSeconds = loopDurationProp ?? defaultLoop;
+  useMarqueeAutoScroll(viewportRef, {
+    zoneRef,
+    loopDurationSeconds,
+    pixelsPerSecond,
+    resumeDelayMs,
+  });
+
   return (
     <div
+      ref={zoneRef}
       className={`skills-marquee skills-marquee--${variant}`}
       aria-hidden="true"
     >
-      <div className="skills-marquee__viewport">
+      <div ref={viewportRef} className="skills-marquee__viewport">
         <div className="skills-marquee__track">
           <Sequence suffix="a" />
           <Sequence suffix="b" />

@@ -41,7 +41,11 @@ function Hero() {
       data-theme="dark"
       aria-label="Profile and tech stack"
     >
-      <ParallaxBg bg="black" pattern={PATTERNS.circuitBoard} strength={0.5} />
+      <ParallaxBg
+        bg="#0a1628"
+        pattern={PATTERNS.constellation}
+        strength={0.5}
+      />
 
       <div className="hero__inner">
         <div className="hero__columns">
@@ -121,10 +125,6 @@ function Hero() {
                 <motion.div className="hero__stack-text" variants={fade(0)}>
                   <span className="hero__stack-eyebrow">Stack</span>
                   <h2 className="hero__stack-title">Tech Stack &amp; Skills</h2>
-                  <p className="hero__stack-subtitle">
-                    Tools and domains I work across — from web platforms to data
-                    and ML.
-                  </p>
                 </motion.div>
                 <SkillsMarquee variant="section" />
                 <SkillCardsMarquee />

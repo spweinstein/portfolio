@@ -1,4 +1,6 @@
+import { useRef } from "react";
 import { skillGroups, SKILL_ICONS } from "../../constants/skillsData.jsx";
+import { useMarqueeAutoScroll } from "../../hooks/useMarqueeAutoScroll";
 import "./SkillCardsMarquee.css";
 
 function Card({ group }) {
@@ -9,7 +11,10 @@ function Card({ group }) {
         {group.skills.map((skill) => (
           <li key={skill} className="skill-cards-marquee__tag">
             {SKILL_ICONS[skill] ? (
-              <span className="skill-cards-marquee__tag-icon" aria-hidden="true">
+              <span
+                className="skill-cards-marquee__tag-icon"
+                aria-hidden="true"
+              >
                 {SKILL_ICONS[skill]}
               </span>
             ) : null}
@@ -31,11 +36,30 @@ function Sequence({ suffix }) {
   );
 }
 
-/** Horizontal infinite marquee of compact category cards. */
-function SkillCardsMarquee() {
+/**
+ * @param {{
+ *   loopDurationSeconds?: number;
+ *   pixelsPerSecond?: number;
+ *   resumeDelayMs?: number;
+ * }} [props]
+ */
+function SkillCardsMarquee({
+  loopDurationSeconds = 20,
+  pixelsPerSecond,
+  resumeDelayMs,
+} = {}) {
+  const zoneRef = useRef(null);
+  const viewportRef = useRef(null);
+  useMarqueeAutoScroll(viewportRef, {
+    zoneRef,
+    loopDurationSeconds,
+    pixelsPerSecond,
+    resumeDelayMs,
+  });
+
   return (
-    <div className="skill-cards-marquee" aria-hidden="true">
-      <div className="skill-cards-marquee__viewport">
+    <div ref={zoneRef} className="skill-cards-marquee" aria-hidden="true">
+      <div ref={viewportRef} className="skill-cards-marquee__viewport">
         <div className="skill-cards-marquee__track">
           <Sequence suffix="a" />
           <Sequence suffix="b" />
