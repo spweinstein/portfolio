@@ -80,17 +80,9 @@ function MediaPanel({ src, alt }) {
   );
 }
 
-function TextBlock({ project }) {
+function ProjectTechAndLinks({ project }) {
   return (
     <>
-      <span className="spotlight__eyebrow">{project.eyebrow}</span>
-      <h3 className="spotlight__title">{project.title}</h3>
-      <p className="spotlight__description">{project.description}</p>
-      <ul className="spotlight__bullets">
-        {project.bullets.map((b) => (
-          <li key={b}>{b}</li>
-        ))}
-      </ul>
       <ul className="spotlight__tech">
         {project.tech.map((t) => (
           <li key={t} className="spotlight__tag">
@@ -128,14 +120,22 @@ function TextBlock({ project }) {
   );
 }
 
-function DetailBlock({ slide }) {
+function SpotlightSlideText({ project, slide }) {
+  const isOverview = slide.kind === "overview";
+  const eyebrow = isOverview ? project.eyebrow : slide.eyebrow;
+  const slideTitle = isOverview ? "Overview" : slide.title;
+  const description = isOverview ? project.description : slide.description;
+  const bullets = isOverview ? project.bullets : slide.bullets;
+
   return (
     <>
-      <span className="spotlight__eyebrow">{slide.eyebrow}</span>
-      <h3 className="spotlight__title">{slide.title}</h3>
-      <p className="spotlight__description">{slide.description}</p>
+      <h3 className="spotlight__project-title">{project.title}</h3>
+      <h4 className="spotlight__slide-title">{slideTitle}</h4>
+      <span className="spotlight__eyebrow">{eyebrow}</span>
+      <ProjectTechAndLinks project={project} />
+      <p className="spotlight__description">{description}</p>
       <ul className="spotlight__bullets">
-        {slide.bullets.map((b) => (
+        {bullets.map((b) => (
           <li key={b}>{b}</li>
         ))}
       </ul>
@@ -144,25 +144,17 @@ function DetailBlock({ slide }) {
 }
 
 function SpotlightSlideContent({ project, slide }) {
-  if (slide.kind === "overview") {
-    return (
-      <>
-        <div className="spotlight__text">
-          <TextBlock project={project} />
-        </div>
-        <div className="spotlight__visual">
-          <MediaPanel src={project.image} alt={project.imageAlt} />
-        </div>
-      </>
-    );
-  }
+  const isOverview = slide.kind === "overview";
+  const image = isOverview ? project.image : slide.image;
+  const imageAlt = isOverview ? project.imageAlt : slide.imageAlt;
+
   return (
     <>
       <div className="spotlight__text">
-        <DetailBlock slide={slide} />
+        <SpotlightSlideText project={project} slide={slide} />
       </div>
       <div className="spotlight__visual">
-        <MediaPanel src={slide.image} alt={slide.imageAlt} />
+        <MediaPanel src={image} alt={imageAlt} />
       </div>
     </>
   );

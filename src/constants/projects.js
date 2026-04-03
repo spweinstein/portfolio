@@ -170,6 +170,7 @@ const HEALTH_IS_WEALTH_SLIDES = [
     image: "/project-health-placeholder.svg",
     imageAlt: "Placeholder for Health is Wealth implementation details",
   },
+
   {
     id: "collaboration",
     kind: "detail",
@@ -227,7 +228,7 @@ export const projects = [
     bullets: [
       "Separates planning from completed workouts",
       "Uses a React frontend and Django API",
-      "Combines auth, calendar views, and CRUD",
+      "Combines auth, calendar views, and CRUD"
     ],
     tech: [
       "React",
