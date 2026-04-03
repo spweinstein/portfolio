@@ -1,0 +1,182 @@
+.skill-cards-marquee {
+  --skill-cards-duration: 80s;
+  /* Dense card shell; tag list scrolls vertically when it overflows */
+  --skill-card-min-h: 108px;
+  --skill-card-max-h: 148px;
+  --skill-card-list-max-h: 78px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.skill-cards-marquee__viewport {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  border-radius: 0;
+  border: none;
+  border-top: 1px solid rgba(59, 130, 246, 0.1);
+  background: color-mix(in srgb, #f8fafc 45%, #e0e7ff 55%);
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 4%,
+    black 96%,
+    transparent
+  );
+}
+
+.skill-cards-marquee__track {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  animation: skill-cards-marquee-x var(--skill-cards-duration) linear infinite;
+}
+
+.skill-cards-marquee:hover .skill-cards-marquee__track {
+  animation-play-state: paused;
+}
+
+@keyframes skill-cards-marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.skill-cards-marquee__sequence {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+  padding: var(--space-sm) var(--space-md);
+}
+
+.skill-cards-marquee__card {
+  flex: 0 0 auto;
+  width: min(248px, 82vw);
+  min-height: var(--skill-card-min-h);
+  max-height: var(--skill-card-max-h);
+  background: color-mix(in srgb, #ffffff 96%, #dbeafe 4%);
+  border: 1px solid rgba(59, 130, 246, 0.12);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  box-shadow: 0 1px 2px rgba(30, 58, 138, 0.06);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.skill-cards-marquee__category {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #1e40af;
+  margin: 0 0 6px;
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+
+.skill-cards-marquee__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 3px;
+  list-style: none;
+  margin: 0;
+  padding: 2px 2px 2px 0;
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: var(--skill-card-list-max-h);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+
+.skill-cards-marquee__list::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+.skill-cards-marquee__card:hover .skill-cards-marquee__list {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(59, 130, 246, 0.4) transparent;
+}
+
+.skill-cards-marquee__card:hover .skill-cards-marquee__list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.skill-cards-marquee__card:hover .skill-cards-marquee__list::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.4);
+  border-radius: 2px;
+}
+
+.skill-cards-marquee__card:hover .skill-cards-marquee__list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.skill-cards-marquee__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: var(--bg-white);
+  color: var(--text-secondary);
+  font-size: 0.62rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.32);
+  line-height: 1.25;
+}
+
+.skill-cards-marquee__tag-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 11px;
+  height: 11px;
+  opacity: 0.62;
+}
+
+.skill-cards-marquee__tag-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 540px) {
+  .skill-cards-marquee {
+    --skill-card-min-h: 100px;
+    --skill-card-max-h: 138px;
+    --skill-card-list-max-h: 72px;
+  }
+
+  .skill-cards-marquee__card {
+    width: min(210px, 85vw);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-cards-marquee__track {
+    animation: none;
+  }
+
+  .skill-cards-marquee__track .skill-cards-marquee__sequence:last-child {
+    display: none;
+  }
+
+  .skill-cards-marquee__viewport {
+    mask-image: none;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .skill-cards-marquee:hover .skill-cards-marquee__track {
+    animation-play-state: running;
+  }
+}

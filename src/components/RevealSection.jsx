@@ -29,7 +29,13 @@ const staggerChildVariants = {
   },
 };
 
-export function RevealSection({ children, className, id, as = "section", theme }) {
+export function RevealSection({
+  children,
+  className,
+  id,
+  as = "section",
+  theme,
+}) {
   const Tag = as === "footer" ? motion.footer : motion.section;
   return (
     <Tag
@@ -38,7 +44,7 @@ export function RevealSection({ children, className, id, as = "section", theme }
       data-theme={theme}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.12 }}
+      viewport={{ once: false, amount: 0 }}
       variants={sectionVariants}
     >
       {children}

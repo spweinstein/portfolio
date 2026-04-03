@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import SocialActions from "../SocialActions/SocialActions.jsx";
+import SkillsMarquee from "../SkillsMarquee/SkillsMarquee.jsx";
+import { SKILLS_MARQUEE_IN_NAVBAR } from "../../config/skillsMarquee.js";
 import { useActiveSection } from "../../hooks/useScrollReveal.js";
 import "./NavBar.css";
 
@@ -37,6 +39,7 @@ function NavBar() {
     "navbar",
     scrolled ? "navbar--scrolled" : "",
     menuOpen ? "navbar--open" : "",
+    SKILLS_MARQUEE_IN_NAVBAR ? "navbar--with-marquee" : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -46,64 +49,72 @@ function NavBar() {
 
   return (
     <nav className={navClass}>
-      <div className="navbar__inner">
-        <a href="#top" className="navbar__brand">
-          Spencer Weinstein
-        </a>
+      <div className="navbar__main">
+        <div className="navbar__inner">
+          <a href="#top" className="navbar__brand">
+            Spencer Weinstein
+          </a>
 
-        <button
-          className="navbar__toggle"
-          onClick={() => setMenuOpen((o) => !o)}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={menuOpen}
-        >
-          <span className="navbar__toggle-bar" />
-          <span className="navbar__toggle-bar" />
-          <span className="navbar__toggle-bar" />
-        </button>
+          <button
+            className="navbar__toggle"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+          >
+            <span className="navbar__toggle-bar" />
+            <span className="navbar__toggle-bar" />
+            <span className="navbar__toggle-bar" />
+          </button>
 
-        <div className="navbar__menu">
-          <ul className="navbar__links">
-            <li>
-              <a
-                href="#about"
-                className={linkClass("about")}
-                onClick={closeMenu}
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#projects"
-                className={linkClass("projects")}
-                onClick={closeMenu}
-              >
-                Portfolio
-              </a>
-            </li>
-            <li>
-              <a
-                href="#skills"
-                className={linkClass("skills")}
-                onClick={closeMenu}
-              >
-                Skills
-              </a>
-            </li>
-            <li>
-              <a
-                href="#education"
-                className={linkClass("education")}
-                onClick={closeMenu}
-              >
-                Education
-              </a>
-            </li>
-          </ul>
-          <SocialActions size="sm" />
+          <div className="navbar__menu">
+            <ul className="navbar__links">
+              <li>
+                <a
+                  href="#about"
+                  className={linkClass("about")}
+                  onClick={closeMenu}
+                >
+                  About
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#projects"
+                  className={linkClass("projects")}
+                  onClick={closeMenu}
+                >
+                  Portfolio
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#skills"
+                  className={linkClass("skills")}
+                  onClick={closeMenu}
+                >
+                  Skills
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#education"
+                  className={linkClass("education")}
+                  onClick={closeMenu}
+                >
+                  Education
+                </a>
+              </li>
+            </ul>
+            <SocialActions size="sm" />
+          </div>
         </div>
       </div>
+
+      {SKILLS_MARQUEE_IN_NAVBAR && (
+        <div className="navbar__marquee">
+          <SkillsMarquee variant="navbar" />
+        </div>
+      )}
 
       {menuOpen && (
         <div

@@ -4,8 +4,11 @@ import {
   StaggerChild,
 } from "../RevealSection.jsx";
 import ParallaxBg from "../ParallaxBg.jsx";
-import { PATTERNS } from "../../constants/parallaxPatterns.js";
-import { skyColor } from "../../constants/mountains.js";
+import {
+  PATTERNS,
+  cyberHexWaveBackgroundSize,
+  cyberHexWaveBg,
+} from "../../constants/parallaxPatterns.js";
 import "./Principles.css";
 
 const principles = [
@@ -30,9 +33,9 @@ function Principles() {
   return (
     <RevealSection className="principles" id="principles" theme="light">
       <ParallaxBg
-        bg={skyColor}
-        pattern={PATTERNS.triangleMesh}
-        strength={0.3}
+        bg="var(--bg-dark)"
+        pattern={PATTERNS.constellation}
+        strength={0.4}
       />
       <div className="principles__inner">
         <p className="principles__eyebrow">How I Work</p>

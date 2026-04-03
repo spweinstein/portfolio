@@ -42,6 +42,8 @@
 
   /* Layout */
   --navbar-height: 60px;
+  --navbar-marquee-band: 30px;
+  --navbar-total-height: var(--navbar-height);
   --max-width:     1100px;
   --radius:        10px;
   --radius-sm:     6px;

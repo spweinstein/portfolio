@@ -32,7 +32,7 @@
 
 .experience__item {
   position: relative;
-  scroll-margin-top: var(--navbar-height);
+  scroll-margin-top: var(--navbar-total-height);
   scroll-margin-bottom: var(--space-md);
 }
 

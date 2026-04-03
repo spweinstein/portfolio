@@ -1,13 +1,6 @@
-import {
-  RevealSection,
-  StaggerContainer,
-  StaggerChild,
-} from "../RevealSection.jsx";
-import ParallaxBg from "../ParallaxBg.jsx";
-import { PATTERNS } from "../../constants/parallaxPatterns.js";
-import "./Skills.css";
+/** Shared skill icons and grouping — used by SkillCardsMarquee and SkillsMarquee. */
 
-const SKILL_ICONS = {
+export const SKILL_ICONS = {
   React: (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.31 0-.592.068-.852.2-1.56.793-1.554 4.203.154 7.726-3.31 1.377-5.408 3.396-5.408 5.344 0 3.107 5.244 4.87 10.02 4.87s10.02-1.763 10.02-4.87c0-1.948-2.098-3.967-5.408-5.344 1.708-3.523 1.714-6.933.154-7.726a1.15 1.15 0 0 0-.543-.164l-.362-.056zm-.602 1.864c.834 1.563 1.204 3.248.654 4.258-.1.183-.24.35-.414.497-1.393-.9-3.06-1.734-4.912-2.398 1.595-1.502 3.18-2.429 4.264-2.429.182 0 .302.032.408.072zM7.72 3.178c1.084 0 2.67.927 4.264 2.429-1.852.664-3.52 1.498-4.912 2.398a2.55 2.55 0 0 1-.414-.497c-.55-1.01-.18-2.695.654-4.258.106-.04.226-.072.408-.072zM4.89 13.414c0-.905 1.464-2.315 4.07-3.37a28.5 28.5 0 0 0 1.58 2.96 28.4 28.4 0 0 0-1.58 2.96c-2.606-1.056-4.07-2.466-4.07-3.37v-.18zm7.11 5.1c-3.58 0-7.39-1.163-7.39-3.37 0-.147.018-.298.054-.452.616.222 1.294.42 2.024.588a18.4 18.4 0 0 0 2.07 3.234c.99.166 2.13.26 3.242.26s2.252-.094 3.242-.26a18.4 18.4 0 0 0 2.07-3.234c.73-.168 1.408-.366 2.024-.588.036.154.054.305.054.452 0 2.207-3.81 3.37-7.39 3.37zm4.07-5.28a28.5 28.5 0 0 0-1.58-2.96 28.4 28.4 0 0 0 1.58-2.96c2.606 1.055 4.07 2.465 4.07 3.37v.18c0 .905-1.464 2.315-4.07 3.37z" />
@@ -128,72 +121,124 @@ const SKILL_ICONS = {
       <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071.005l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm17.597 4.104l-5.825-3.38 2.02-1.166a.076.076 0 0 1 .071-.006l4.83 2.787a4.494 4.494 0 0 1-.693 8.084V12.68a.776.776 0 0 0-.403-.68zm2.01-3.026l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L10.404 9.5V7.169a.079.079 0 0 1 .033-.063l4.83-2.786a4.494 4.494 0 0 1 6.68 4.654zM9.2 12.952l-2.02-1.167a.076.076 0 0 1-.038-.057V6.146a4.494 4.494 0 0 1 7.375-3.453l-.142.08L9.6 5.533a.795.795 0 0 0-.393.681l-.007 6.738z" />
     </svg>
   ),
+  SQL: (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M4 6c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v2H4V6zm0 4h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10zm4 3h8v2H8v-2zm0 4h5v2H8v-2z" />
+    </svg>
+  ),
+  Pandas: (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z" />
+    </svg>
+  ),
+  NumPy: (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4zM4 10h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4zM4 16h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z" />
+    </svg>
+  ),
+  Jupyter: (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+    </svg>
+  ),
+  "scikit-learn": (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z" />
+    </svg>
+  ),
+  TensorFlow: (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2L4 6v12l8 4 8-4V6l-8-4zm0 2.18l5.5 2.75v8.14L12 19.82l-5.5-2.75V6.93L12 4.18zM12 8.5L8.25 10.25 12 12l3.75-1.75L12 8.5z" />
+    </svg>
+  ),
+  PyTorch: (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z" />
+    </svg>
+  ),
+  spaCy: (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M4 6h16v2H4V6zm2 4h12v2H6v-2zm-2 4h16v2H4v-2zm2 4h8v2H6v-2z" />
+    </svg>
+  ),
+  Transformers: (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+    </svg>
+  ),
+  Docker: (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M4 10h2v2H4v-2zm4 0h2v2H8v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zM4 14h2v2H4v-2zm4 0h2v2H8v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm2-4h2v2h-2v-2zM2 18h20v2H2v-2z" />
+    </svg>
+  ),
+  AWS: (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M6.5 12.5L12 4l5.5 8.5h-3L12 9.5 9.5 12.5h-3zM4 18h16v2H4v-2z" />
+    </svg>
+  ),
 };
 
-const skillGroups = [
+export const skillGroups = [
   {
-    category: "Frontend",
+    category: "JavaScript",
     skills: [
       "React",
-      "JavaScript (ES6+)",
-      "HTML5",
-      "CSS3",
       "Vite",
       "React Router",
+      "Node.js",
+      "Express",
+      "ESLint",
+      "Mongoose",
     ],
   },
   {
-    category: "Backend",
-    skills: ["Node.js", "Express", "Python", "Django", "REST APIs", "JWT Auth"],
+    category: "Python",
+    skills: [
+      "Python",
+      "Django",
+      "REST APIs",
+      "Flask",
+      "NumPy",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow",
+      "PyTorch",
+    ],
   },
   {
-    category: "Database",
-    skills: ["MongoDB", "Mongoose", "PostgreSQL"],
+    category: "Data Analysis",
+    skills: ["SQL", "Pandas", "NumPy", "Jupyter", "PostgreSQL"],
   },
   {
-    category: "Tools & Practices",
-    skills: ["Git", "GitHub", "Netlify", "Railway", "ESLint", "Agile"],
+    category: "Machine Learning",
+    skills: [
+      "scikit-learn",
+      "TensorFlow",
+      "PyTorch",
+      "Cross Validation",
+      "Feature Engineering",
+      "Hyperparameter Tuning",
+    ],
+  },
+  {
+    category: "NLP",
+    skills: [
+      "NLTK",
+      "Sentiment Analysis",
+      "Topic Modeling",
+      "Text Embeddings",
+      "word2vec/GloVe",
+      "Text Similarity",
+      "Document Clustering",
+      "OpenAI",
+      "spaCy",
+    ],
+  },
+  {
+    category: "Cloud & DevOps",
+    skills: ["Git", "GitHub", "Netlify", "Railway", "AWS"],
   },
 ];
 
-function Skills() {
-  return (
-    <RevealSection className="skills" id="skills" theme="light">
-      <ParallaxBg
-        bg="var(--bg-body)"
-        pattern={PATTERNS.triangleMesh}
-        strength={0.15}
-      />
-      <div className="skills__inner">
-        <span className="skills__eyebrow">Stack</span>
-        <h2 className="section-title">What I Build With</h2>
-        <p className="section-subtitle">
-          The tools I reach for most — across frontend, backend, data, and
-          deployment.
-        </p>
-
-        <StaggerContainer className="skills__grid">
-          {skillGroups.map((group) => (
-            <StaggerChild key={group.category} className="skills__group">
-              <h3 className="skills__category">{group.category}</h3>
-              <ul className="skills__list">
-                {group.skills.map((skill) => (
-                  <li key={skill} className="skills__tag">
-                    {SKILL_ICONS[skill] && (
-                      <span className="skills__tag-icon">
-                        {SKILL_ICONS[skill]}
-                      </span>
-                    )}
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </StaggerChild>
-          ))}
-        </StaggerContainer>
-      </div>
-    </RevealSection>
-  );
-}
-
-export default Skills;
+/** Flat skill order for the marquee (matches grouped grid, top-to-bottom within each category). */
+export const SKILLS_ORDER = skillGroups.flatMap((g) => g.skills);

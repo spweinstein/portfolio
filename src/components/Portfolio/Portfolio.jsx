@@ -11,7 +11,7 @@ function Portfolio() {
       <ParallaxBg
         bg="#0a1628"
         pattern={PATTERNS.constellation}
-        strength={0.3}
+        strength={0.4}
       />
       <div className="portfolio__inner">
         <span className="portfolio__eyebrow">Selected work</span>
