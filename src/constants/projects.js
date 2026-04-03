@@ -46,7 +46,7 @@ const JOB_APP_TRACKER = {
       id: "demo",
       kind: "detail",
       eyebrow: "Product in action",
-      title: "From dashboard to supporting documents",
+      title: "Organize job applications with ease",
       description:
         "A quick walkthrough shows how the app moves from high-level tracking into applications, companies, resumes, and cover letters.",
       bullets: [
